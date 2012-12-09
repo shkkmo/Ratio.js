@@ -1,4 +1,5 @@
 ## Ratio.js ##
+
 Provides a Fraction / Rational / Ratio object for javascript.
 
 **Why use Ratio.js?**
