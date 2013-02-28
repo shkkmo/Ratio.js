@@ -357,7 +357,7 @@ var runTests = function () {
 		b;
 		a = new Ratio(1, 2);
 		b = new Ratio(3, 2);
-		a.numerator = 3;
+		a.n = 3;
 		equal(a.equals(b), true);
 	});
 	test("test changing denominator", function () {
@@ -365,7 +365,7 @@ var runTests = function () {
 		b;
 		a = new Ratio(1, 2);
 		b = new Ratio(1, 3);
-		a.denominator = 3;
+		a.d = 3;
 		equal(a.equals(b), true);
 	});
 	

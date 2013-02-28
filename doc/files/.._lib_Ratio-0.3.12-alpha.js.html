@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>..\lib\Ratio-0.3.11.js</title>
+    <title>..\lib\Ratio-0.3.12-alpha.js</title>
     <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.7.0&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.3.11</em>
+            <em>API Docs for: 0.3.12-alpha</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -82,7 +82,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: ..\lib\Ratio-0.3.11.js</h1>
+                        <h1 class="file-heading">File: ..\lib\Ratio-0.3.12-alpha.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
@@ -94,7 +94,7 @@
 MIT License &lt;http:&#x2F;&#x2F;www.opensource.org&#x2F;licenses&#x2F;mit-license&gt;
 GPL v3 &lt;http:&#x2F;&#x2F;opensource.org&#x2F;licenses&#x2F;GPL-3.0&gt;
  * @info Project page: &lt;https:&#x2F;&#x2F;github.com&#x2F;LarryBattle&#x2F;Ratio.js&#x2F;&gt;
- * @version 0.3.11
+ * @version 0.3.12-alpha
  * @note Uses YUI-DOC to generate documentation.
  **&#x2F;
 var Ratio = (function () {
@@ -112,8 +112,8 @@ var Ratio = (function () {
      * @param {Boolean} [alwaysReduce] if true, then the Ratio object and the children from it will always represent the simplified form of the rational.
      * @return {Ratio} object that has a numerator and denominator, corresponding to a&#x2F;b.
      * @example
-	Ratio(2,4).toString() === &quot;2&#x2F;4&quot;;
-	Ratio(&quot;2&#x2F;4&quot;).toString() === &quot;NaN&#x2F;1&quot; &#x2F;&#x2F; Use Ratio.parse()!
+    Ratio(2,4).toString() === &quot;2&#x2F;4&quot;;
+    Ratio(&quot;2&#x2F;4&quot;).toString() === &quot;NaN&#x2F;1&quot; &#x2F;&#x2F; Use Ratio.parse()!
      **&#x2F;
     var Ratio = function (numerator, denominator, alwaysReduce) {
         if (!(this instanceof Ratio)) {
@@ -121,40 +121,40 @@ var Ratio = (function () {
         }
         this.divSign = &quot;&#x2F;&quot;;
         this.alwaysReduce = !!alwaysReduce;
-        this.denominator = denominator;
-        this.numerator = numerator;
+        this.d = denominator;
+        this.n = numerator;
         return this.correctRatio();
     };
     &#x2F;**
-    * Represents the maximum amount of precision avaiable. &lt;br&#x2F;&gt;
-    * Any value with more digits will become estimations.
-    *
-    * @property Ratio.MAX_PRECISION
-    * @type {Number}
-    *&#x2F;
-    Ratio.MAX_PRECISION = (1&#x2F;3).toString().length-2;
+     * Represents the maximum amount of precision avaiable. &lt;br&#x2F;&gt;
+     * Any value with more digits will become estimations.
+     *
+     * @property Ratio.MAX_PRECISION
+     * @type {Number}
+     *&#x2F;
+    Ratio.MAX_PRECISION = (1 &#x2F; 3).toString().length - 2;
     &#x2F;**
-    * Represents the largest value that stored without loss of precision. &lt;br&#x2F;&gt;
-    * Any value larger will become estimations.
-    *
-    * @property Ratio.MAX_VALUE
-    * @type {Number}
-    *&#x2F;
+     * Represents the largest value that stored without loss of precision. &lt;br&#x2F;&gt;
+     * Any value larger will become estimations.
+     *
+     * @property Ratio.MAX_VALUE
+     * @type {Number}
+     *&#x2F;
     Ratio.MAX_VALUE = Math.pow(2, 53);
     &#x2F;**
-    * Represents the smallest value that stored without loss of precision. &lt;br&#x2F;&gt;
-    * Any value smaller will become estimations.
-    *
-    * @property Ratio.MIN_VALUE
-    * @type {Number}
-    *&#x2F;
-    Ratio.MIN_VALUE = -Math.pow(2,53);
+     * Represents the smallest value that stored without loss of precision. &lt;br&#x2F;&gt;
+     * Any value smaller will become estimations.
+     *
+     * @property Ratio.MIN_VALUE
+     * @type {Number}
+     *&#x2F;
+    Ratio.MIN_VALUE = -Math.pow(2, 53);
     &#x2F;**
-    * Stores complex regular expressions.
-    *
-    * @property Ratio.regex
-    * @type {Object}
-    *&#x2F;
+     * Stores complex regular expressions.
+     *
+     * @property Ratio.regex
+     * @type {Object}
+     *&#x2F;
     Ratio.regex = {
         divSignCheck : &#x2F;(\d|Infinity)\s*\&#x2F;&#x2F;,
         divSignSplit : &#x2F;\&#x2F;&#x2F;,
@@ -169,15 +169,15 @@ var Ratio = (function () {
      * @property Ratio.VERSION
      * @type String
      **&#x2F;
-    Ratio.VERSION = &quot;0.3.11&quot;;
+    Ratio.VERSION = &quot;0.3.12-alpha&quot;;
     &#x2F;**
      * Checks if value is a finite number. &lt;br&#x2F;&gt; Borrowed from jQuery 1.7.2 &lt;br&#x2F;&gt;
      *
      * @method Ratio.isNumeric
      * @param {Object} obj
      * @return {Boolean}
-     * @example     
-	Ratio.isNumeric(&quot;1.0e3&quot;) === true
+     * @example
+    Ratio.isNumeric(&quot;1.0e3&quot;) === true
      **&#x2F;
     Ratio.isNumeric = function (obj) {
         return !isNaN(parseFloat(obj)) &amp;&amp; isFinite(obj);
@@ -190,7 +190,7 @@ var Ratio = (function () {
      * @param {Object} value
      * @return {Object}
      * @example
-	Ratio.getValueIfDefined( 4, null ) === 4
+    Ratio.getValueIfDefined( 4, null ) === 4
      **&#x2F;
     Ratio.getValueIfDefined = function (backup, value) {
         return typeof value !== &quot;undefined&quot; &amp;&amp; value !== null ? value : backup;
@@ -303,7 +303,7 @@ var Ratio = (function () {
             arr[j[1]] = Number(top[j[1]] + &quot;e&quot; + Math.abs(+parts[1]));
             break;
         case &quot;Ratio&quot;:
-            arr = [obj.numerator, obj.denominator];
+            arr = [obj.n, obj.d];
             break;
         default:
             arr = [NaN, 1];
@@ -322,13 +322,13 @@ var Ratio = (function () {
      * @example
     Ratio.parse(22,7).toString() === &quot;22&#x2F;7&quot;; &#x2F;&#x2F;whole numbers
     
-    Ratio.parse(&quot;3 1&#x2F;7&quot;).toString() === &quot;22&#x2F;7&quot;; &#x2F;&#x2F; mixed numbers 
+    Ratio.parse(&quot;3 1&#x2F;7&quot;).toString() === &quot;22&#x2F;7&quot;; &#x2F;&#x2F; mixed numbers
     
-    Ratio.parse(22&#x2F;7).reduce().toLocaleString() === &quot;3 1&#x2F;7&quot;; &#x2F;&#x2F; decimals 
+    Ratio.parse(22&#x2F;7).reduce().toLocaleString() === &quot;3 1&#x2F;7&quot;; &#x2F;&#x2F; decimals
     
-    Ratio.parse(&quot;22&#x2F;7&quot;).toLocaleString() === &quot;3 1&#x2F;7&quot;; &#x2F;&#x2F; fractions 
+    Ratio.parse(&quot;22&#x2F;7&quot;).toLocaleString() === &quot;3 1&#x2F;7&quot;; &#x2F;&#x2F; fractions
     
-    Ratio.parse(&quot;22e31&#x2F;70e30&quot;).reduce().toLocaleString() === &quot;3 1&#x2F;7&quot;; &#x2F;&#x2F; scientific notated numbers 
+    Ratio.parse(&quot;22e31&#x2F;70e30&quot;).reduce().toLocaleString() === &quot;3 1&#x2F;7&quot;; &#x2F;&#x2F; scientific notated numbers
      **&#x2F;
     Ratio.parse = function (obj, obj2) {
         var arr = Ratio.parseToArray(obj),
@@ -363,8 +363,8 @@ var Ratio = (function () {
      **&#x2F;
     Ratio.reduce = function (obj, obj2) {
         obj = Ratio.parse(obj, obj2);
-        var top = obj.numerator,
-        bottom = top || !obj.denominator ? obj.denominator : 1,
+        var top = obj.n,
+        bottom = top || !obj.d ? obj.d : 1,
         arr = Ratio.getRepeatProps(top &#x2F; bottom),
         factor;
         if (arr.length) {
@@ -464,30 +464,31 @@ var Ratio = (function () {
         return num;
     };
     &#x2F;**
-    * Moves all the zeros for scientific numbers to the first or second element.&lt;&#x2F;br&gt;
-    * The most takes all. This helps reduce computational errors with &#x60;SN&#x60;s. *Need to reword* 
-    *
-    * @param {Number} top
-    * @param {Number} bottom
-    * @return {Array} - Pair of numbers
-    * @method Ratio.simplifyENotation
-    * @example 
-Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
-    *&#x2F;
-    Ratio.simplifyENotation = function(top, bottom){
-        var val = top&#x2F;bottom, re = &#x2F;[eE]&#x2F;;
-        if( !isNaN(val) &amp;&amp; re.test(top) &amp;&amp; re.test(bottom) ){
+     * Moves all the zeros for scientific numbers to the first or second element.&lt;&#x2F;br&gt;
+     * The most takes all. This helps reduce computational errors with &#x60;SN&#x60;s. *Need to reword*
+     *
+     * @param {Number} top
+     * @param {Number} bottom
+     * @return {Array} - Pair of numbers
+     * @method Ratio.simplifyENotation
+     * @example
+    Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
+     *&#x2F;
+    Ratio.simplifyENotation = function (top, bottom) {
+        var val = top &#x2F; bottom,
+        re = &#x2F;[eE]&#x2F;;
+        if (!isNaN(val) &amp;&amp; re.test(top) &amp;&amp; re.test(bottom)) {
             var arr = (top).toString().split(&quot;e&quot;),
-                arr2 = (bottom).toString().split(&quot;e&quot;);
-            if( Number( arr2[1] ) &lt; Number(arr[1]) ){
+            arr2 = (bottom).toString().split(&quot;e&quot;);
+            if (Number(arr2[1]) &lt; Number(arr[1])) {
                 arr[1] = Number(arr[1]) + (-1 * arr2[1]);
                 arr2[1] = 0;
-            }else{
+            } else {
                 arr2[1] = Number(arr2[1]) + (-1 * arr[1]);
                 arr[1] = 0;
             }
-            top = Number( arr.join(&quot;e&quot;) );
-            bottom = Number(arr2.join(&quot;e&quot;) );
+            top = Number(arr.join(&quot;e&quot;));
+            bottom = Number(arr2.join(&quot;e&quot;));
         }
         return [top, bottom];
     };
@@ -524,6 +525,19 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
     };
     Ratio.prototype = {
         constructor : Ratio,
+		numerator : function(val){
+			if(typeof val !== &quot;undefined&quot;){
+				this.n = Ratio.parse(val).valueOf();
+			}
+			return this.n;
+		},
+		denominator : function(val){
+			if(typeof val !== &quot;undefined&quot;){
+				this.d = Ratio.parse(val).valueOf();
+				this.correctRatio();
+			}
+			return this.d;
+		},
         &#x2F;**
          * For each ratio instance, corrects three main problems:
          * 1) Sets the numerator and denominator to default values if undefined. (Default fraction: 0&#x2F;1)
@@ -536,8 +550,8 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio().toString() === &quot;0&#x2F;1&quot;; &#x2F;&#x2F; &#x60;.correctRatio()&#x60; was called internally.
          **&#x2F;
         correctRatio : function () {
-            var a = this.numerator,
-            b = this.denominator,
+            var a = this.n,
+            b = this.d,
             arr;
             if (typeof b === &quot;undefined&quot;) {
                 b = 1;
@@ -545,12 +559,12 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
                     a = 0;
                 }
             }
-            this.denominator = +Math.abs(b);
-            this.numerator = Ratio.getNumeratorWithSign(a, (b || 1));
-            if (this.denominator &amp;&amp; this.alwaysReduce) {
+            this.d = +Math.abs(b);
+            this.n = Ratio.getNumeratorWithSign(a, (b || 1));
+            if (this.d &amp;&amp; this.alwaysReduce) {
                 arr = Ratio.reduce(this);
-                this.numerator = arr[0];
-                this.denominator = arr[1];
+                this.n = arr[0];
+                this.d = arr[1];
             }
             return this;
         },
@@ -563,7 +577,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio(1,2).toArray().join(&#x27;,&#x27;) === &quot;1,2&quot;
          **&#x2F;
         toArray : function () {
-            return [this.numerator, this.denominator];
+            return [this.n, this.d];
         },
         &#x2F;**
          * From the Ratio instance, returns the result of the numerator divided by the denominator.
@@ -575,8 +589,8 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio(1,2).valueOf() === 0.5;
          **&#x2F;
         valueOf : function () {
-            var arr = Ratio.simplifyENotation(this.numerator, this.denominator);
-            return arr[0]&#x2F;arr[1];
+            var arr = Ratio.simplifyENotation(this.n, this.d);
+            return arr[0] &#x2F; arr[1];
         },
         &#x2F;**
          * From the Ratio instance, returns a string of the Ratio in fraction form if the numerator and denominator are Rational numbers.&lt;br&#x2F;&gt;
@@ -597,13 +611,13 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
             str;
             if (isNaN(val)) {
                 str = &quot;NaN&quot;;
-            } else if (val % 1 === 0 || this.denominator === 1 || !isFinite(val % 1)) {
+            } else if (val % 1 === 0 || this.d === 1 || !isFinite(val % 1)) {
                 str = String(val);
             } else if (1 &lt; Math.abs(val)) {
                 x = parseInt(val, 10);
-                str = x + &quot; &quot; + Math.abs(this.numerator % this.denominator) + String(this.divSign) + this.denominator;
+                str = x + &quot; &quot; + Math.abs(this.n % this.d) + String(this.divSign) + this.d;
             } else {
-                str = this.numerator + String(this.divSign) + this.denominator;
+                str = this.n + String(this.divSign) + this.d;
             }
             return str;
         },
@@ -623,7 +637,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         a.toString() == &quot;8:2&quot;;
          **&#x2F;
         toString : function () {
-            return String(this.numerator + this.divSign + this.denominator);
+            return String(this.n + this.divSign + this.d);
         },
         &#x2F;**
          * Returns a new instance of the current Ratio.&lt;br&#x2F;&gt;
@@ -635,27 +649,27 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
          * @param {Boolean} [alwaysReduce]
          * @return {Ratio}
          * @example
-        var a = Ratio(2,4); 
-        var b = a.clone(); 
+        var a = Ratio(2,4);
+        var b = a.clone();
         a.equals(b) === true;
          **&#x2F;
         clone : function (top, bottom, alwaysReduce) {
             var func = Ratio.getValueIfDefined;
-            top = func(this.numerator, top);
-            bottom = func(this.denominator, bottom);
+            top = func(this.n, top);
+            bottom = func(this.d, bottom);
             alwaysReduce = func(this.alwaysReduce, alwaysReduce);
             return new Ratio(top, bottom, alwaysReduce);
         },
         &#x2F;**
-        * Determines if a current instance value is not a number.
-        *
-        * @method Ratio.prototype.isNaN
-        * @return {Boolean}
-        * @example
+         * Determines if a current instance value is not a number.
+         *
+         * @method Ratio.prototype.isNaN
+         * @return {Boolean}
+         * @example
         Ratio(1,2).isNaN() === false;
-        *&#x2F;
-        isNaN : function(){
-            return !Ratio.isNumeric( this.valueOf() );
+         *&#x2F;
+        isNaN : function () {
+            return !Ratio.isNumeric(this.valueOf());
         },
         &#x2F;**
          * Returns a reduced ratio from the current instance.
@@ -667,7 +681,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio(10,2).reduce().toString() === &quot;5&#x2F;1&quot;
          **&#x2F;
         reduce : function () {
-            var arr = Ratio.reduce(this.numerator, this.denominator);
+            var arr = Ratio.reduce(this.n, this.d);
             return this.clone(arr[0], arr[1]);
         },
         &#x2F;**
@@ -686,13 +700,13 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
             var x,
             top,
             bottom;
-            if (this.denominator === obj.denominator) {
-                top = this.numerator + obj.numerator;
-                bottom = this.denominator;
+            if (this.d === obj.d) {
+                top = this.n + obj.n;
+                bottom = this.d;
             } else {
-                x = Ratio.gcd(this.denominator, obj.denominator);
-                top = ((this.numerator * obj.denominator) + (this.denominator * obj.numerator)) &#x2F; x;
-                bottom = (this.denominator * obj.denominator) &#x2F; x;
+                x = Ratio.gcd(this.d, obj.d);
+                top = ((this.n * obj.d) + (this.d * obj.n)) &#x2F; x;
+                bottom = (this.d * obj.d) &#x2F; x;
             }
             return this.clone(top, bottom);
         },
@@ -709,7 +723,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
          **&#x2F;
         divide : function (obj, obj2) {
             obj = Ratio.getCombinedRatio(obj, obj2);
-            return this.clone(this.numerator * obj.denominator, this.denominator * obj.numerator);
+            return this.clone(this.n * obj.d, this.d * obj.n);
         },
         &#x2F;**
          * Returns if the current Ratio and another object have the same numeric value.
@@ -722,7 +736,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
          **&#x2F;
         equals : function (obj) {
             var val = (Ratio.isNumeric(obj) || obj instanceof Ratio) ? obj.valueOf() : Ratio.parse(obj).valueOf();
-            return (this.numerator &#x2F; this.denominator) === +val;
+            return (this.n &#x2F; this.d) === +val;
         },
         &#x2F;**
          * Performs a strict comparison to determine if the current instances and passed object are identical.
@@ -734,9 +748,9 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio(1,2).deepEquals( 1&#x2F;2 ) === false
          *&#x2F;
         deepEquals : function (obj) {
-            return (obj instanceof Ratio) &amp;&amp; (this.numerator === obj.numerator) &amp;&amp;
-                (this.denominator === obj.denominator) &amp;&amp; (this.divSign === obj.divSign) &amp;&amp; 
-                (this.alwaysReduce === obj.alwaysReduce );
+            return (obj instanceof Ratio) &amp;&amp; (this.n === obj.n) &amp;&amp;
+            (this.d === obj.d) &amp;&amp; (this.divSign === obj.divSign) &amp;&amp;
+            (this.alwaysReduce === obj.alwaysReduce);
         },
         &#x2F;**
          * Multiply the current Ratio by another Ratio.
@@ -751,7 +765,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
          **&#x2F;
         multiply : function (obj, obj2) {
             obj = Ratio.getCombinedRatio(obj, obj2);
-            return this.clone(this.numerator * obj.numerator, this.denominator * obj.denominator);
+            return this.clone(this.n * obj.n, this.d * obj.d);
         },
         &#x2F;**
          * Subtracts the current Ratio from another Ratio.
@@ -766,7 +780,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
          **&#x2F;
         subtract : function (obj, obj2) {
             obj = Ratio.getCombinedRatio(obj, obj2);
-            obj.numerator = -obj.numerator;
+            obj.n = -obj.n;
             return this.add(obj);
         },
         &#x2F;**
@@ -782,7 +796,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
          **&#x2F;
         descale : function (obj, obj2) {
             var factor = Ratio.getCombinedRatio(obj, obj2);
-            return this.clone(this.numerator &#x2F; factor, this.denominator &#x2F; factor);
+            return this.clone(this.n &#x2F; factor, this.d &#x2F; factor);
         },
         &#x2F;**
          * From the Ratio instance, returns an new Ratio raised to a power.
@@ -797,7 +811,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
          **&#x2F;
         pow : function (obj, obj2) {
             var power = Ratio.getCombinedRatio(obj, obj2);
-            return this.clone(Math.pow(this.numerator, +power), Math.pow(this.denominator, +power));
+            return this.clone(Math.pow(this.n, +power), Math.pow(this.d, +power));
         },
         &#x2F;**
          * From the Ratio instance, returns a new Ratio scaled up by a factor.
@@ -812,7 +826,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
          **&#x2F;
         scale : function (obj, obj2) {
             var factor = Ratio.getCombinedRatio(obj, obj2);
-            return this.clone(this.numerator * +factor, this.denominator * +factor);
+            return this.clone(this.n * +factor, this.d * +factor);
         },
         &#x2F;**
          * From the Ratio instance, returns a new Ratio by parsing the numerator and denominator.&lt;br&#x2F;&gt;
@@ -822,19 +836,19 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
          * @chainable
          * @return {Ratio}
          * @example
-        var a = Ratio(20,30).descale(3); 
-        a.toString() == &quot;6.666666666666667&#x2F;10&quot;; 
+        var a = Ratio(20,30).descale(3);
+        a.toString() == &quot;6.666666666666667&#x2F;10&quot;;
         a.cleanFormat().toString() == &quot;6666666666666667&#x2F;10000000000000000&quot;
          **&#x2F;
         cleanFormat : function () {
             var re = Ratio.regex.cleanFormat,
             obj;
-            if (re.test(this.numerator) || re.test(this.denominator)) {
-                return Ratio.parse(this.numerator, this.denominator);
+            if (re.test(this.n) || re.test(this.d)) {
+                return Ratio.parse(this.n, this.d);
             }
             obj = this.clone();
-            obj.numerator = Ratio.getCleanENotation(obj.numerator);
-            obj.denominator = Ratio.getCleanENotation(obj.denominator);
+            obj.n = Ratio.getCleanENotation(obj.n);
+            obj.d = Ratio.getCleanENotation(obj.d);
             return obj;
         },
         &#x2F;**
@@ -847,7 +861,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio(-3,2).abs().toString() === &quot;3&#x2F;2&quot;
          **&#x2F;
         abs : function () {
-            return this.clone(Math.abs(this.numerator));
+            return this.clone(Math.abs(this.n));
         },
         &#x2F;**
          * From the Ratio instance, returns a new Ratio in the form of (numerator mod denominator)&#x2F;1.&lt;br&#x2F;&gt;
@@ -860,7 +874,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio(3,10).mod().toString() === &quot;3&#x2F;1&quot;
          **&#x2F;
         mod : function () {
-            return this.clone(this.numerator % this.denominator, 1);
+            return this.clone(this.n % this.d, 1);
         },
         &#x2F;**
          * Returns a new instance of the Ratio with the sign toggled.
@@ -872,7 +886,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio(1,2).negate().toString() === &quot;-1&#x2F;2&quot;
          **&#x2F;
         negate : function () {
-            return this.clone(-this.numerator);
+            return this.clone(-this.n);
         },
         &#x2F;**
          * Determines if the current Ratio is a proper fraction.
@@ -883,7 +897,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio(12,3).isProper() == false;
          **&#x2F;
         isProper : function () {
-            return Math.abs(this.numerator) &lt; this.denominator;
+            return Math.abs(this.n) &lt; this.d;
         },
         &#x2F;**
          * Determines the value of x. Solves the following equations.&lt;br&#x2F;&gt;
@@ -901,7 +915,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
          **&#x2F;
         findX : function (str) {
             var arr = String(str).split(&quot;&#x2F;&quot;);
-            if (arr.length !== 2 || ( !isNaN(arr[0] ) &amp;&amp; !isNaN( arr[1]))) {
+            if (arr.length !== 2 || (!isNaN(arr[0]) &amp;&amp; !isNaN(arr[1]))) {
                 return null;
             }
             return (isNaN(arr[0]) ? new Ratio(arr[1]).multiply(this) : new Ratio(arr[0]).divide(this));
@@ -916,7 +930,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio(1,2).reciprocal().toString() == &quot;2&#x2F;1&quot;;
          **&#x2F;
         reciprocal : function () {
-            return this.clone(this.denominator, this.numerator);
+            return this.clone(this.d, this.n);
         },
         &#x2F;**
          * From the Ratio instance, approxiates the value to a new fraction with a provided denominator.
@@ -985,7 +999,7 @@ Ratio.simplifyENotation(3e80,3e35); &#x2F;&#x2F; returns [3e45,3]
         Ratio.parse(4.2).makeProper().toString() === &quot;2&#x2F;10&quot;
          *&#x2F;
         makeProper : function () {
-            return this.clone(this.numerator % this.denominator, this.denominator);
+            return this.clone(this.n % this.d, this.d);
         }
     };
     return Ratio;

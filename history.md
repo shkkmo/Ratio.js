@@ -1,6 +1,10 @@
 ##Ratio.js Release Notes##
 __Project Page:__ <https://github.com/LarryBattle/Ratio.js>  <br/>
 
+__@Version: 0.4__ - 1/13/2013<br/>
+- sd <br/>
+- Fixed [issued 35](https://github.com/LarryBattle/Ratio.js/issues/35) "Ratio.parse("0 a/b").toString() returns -a/b"
+
 __@Version: 0.3.11__ - 12/18/2012<br/>
 - Added: `.gitignore`<br/>
 - Added: `devDependencies` to `.\package.json`<br/>

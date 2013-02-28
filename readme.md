@@ -1,3 +1,6 @@
+# You're in the dev branch. 
+# May be unstable.
+
 ## Ratio.js ##
 Provides a Fraction / Rational / Ratio object for javascript.
 
@@ -17,14 +20,14 @@ Node.js, Chrome 19+, Firefox 12+, IE 7+, and Opera 11+.
 Note: Run the test cases to check for additional browser compatibility.
 
 ##Current version
-<span id="ratioVersion">0.3.11</span>
+<span id="ratioVersion">0.3.12-alpha</span>
 
 ## Installation ##
 Just include the Ratio.js script.
 
 <b>Browser:</b>
 
-	<script src="./lib/Ratio-0.3.11.js</b>
+	<script src="./lib/Ratio-0.3.12-alpha.js</b>
 
 Install from npm
 
